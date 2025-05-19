@@ -1,3 +1,59 @@
+/* Reset and basic styles */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(135deg, #00205B 0%, #004080 100%);
+}
+
+/* Landing page container */
+.landing-page {
+  height: calc(100vh - 56px - 48px); /* Full viewport minus navbar and footer */
+  padding: 2rem;
+}
+
+/* Spinning maple leaf animation */
+.spinning-leaf {
+  animation: spin 10s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+  cursor: default;
+}
+
+/* Spin animation keyframes */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Zoom in animation */
+@keyframes zoomInLeaf {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(2);
+  }
+}
+
+.zoom-in {
+  animation: zoomInLeaf 1s forwards;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+  cursor: pointer;
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .display-1 {
+    font-size: 2.5rem;
+  }
+}
+
 /* General Card Styling */
 .player-card {
   background-color: #fdfdfd;
@@ -41,4 +97,47 @@
 .player-card .details i {
   margin-right: 0.4rem;
   color: #888;
+}
+
+.navbar {
+  font-size: 30px; 
+}
+
+/* Schedule page enhancements */
+
+main.container {
+  background: rgba(0, 32, 91, 0.85); 
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.4);
+}
+
+h1.display-5 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+img.img-fluid {
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+img.img-fluid:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  h1.display-5 {
+    font-size: 2.2rem;
+  }
+  
+  main.container {
+    padding: 1.5rem 1rem;
+  }
 }

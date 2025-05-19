@@ -2,52 +2,66 @@
 <html lang="en">
 
 <head>
-    <title>Toronto Maple Leafs</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
-        <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toronto Maple Leafs | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png"
+        href="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Toronto_Maple_Leafs_2016_logo.svg/1200px-Toronto_Maple_Leafs_2016_logo.svg.png" />
 </head>
 
 <body>
     <header>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container">
-                    <a class="navbar-brand" href="#">Team Roster</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="roster.html">Roster</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="schedule.html">Schedule</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark"
+            style="background-color: #00205B; font-family: 'Bebas Neue', sans-serif;">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Toronto_Maple_Leafs_2016_logo.svg/1200px-Toronto_Maple_Leafs_2016_logo.svg.png"
+                        alt="Leafs Logo" width="40" height="auto" class="me-2">
+                    <span style="font-size: 1.5rem;">Toronto Maple Leafs</span>
+                </a>
 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leafsNavbar"
+                    aria-controls="leafsNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="leafsNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="schedule.html">Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="roster.html">Roster</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
-    <main></main>
-    <footer>
-        <!-- place footer here -->
+
+    <main>
+        <section
+            class="landing-page d-flex flex-column justify-content-center align-items-center text-center text-white">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Toronto_Maple_Leafs_2016_logo.svg/1200px-Toronto_Maple_Leafs_2016_logo.svg.png"
+                alt="Spinning Maple Leaf" class="spinning-leaf" width="200" height="200" />
+
+            <h1 class="display-1 mt-4">Welcome to the Toronto Maple Leafs</h1>
+            <p class="lead mt-3">The heart of hockey in Toronto.</p>
+
+            <button id="learnMoreBtn" class="btn btn-outline-light btn-lg mt-4">Learn More About the Leafs</button>
+        </section>
+    </main>
+
+    <footer class="text-center text-white py-3" style="background-color: #00205B;">
+        &copy; 2025 Toronto Maple Leafs Fan Site
     </footer>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -56,8 +70,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById('learnMoreBtn').addEventListener('click', () => {
+            const leaf = document.querySelector('.spinning-leaf');
+
+            // Add zoom-in animation class
+            leaf.classList.add('zoom-in');
+
+            // Disable the button while animating
+            const btn = document.getElementById('learnMoreBtn');
+            btn.disabled = true;
+
+            // Redirect after animation finishes
+            leaf.addEventListener('animationend', () => {
+                window.location.href = 'history.html'; // Change to your actual history page
+            }, { once: true });
+        });
+    </script>
 </body>
-<script src="players.js"></script>
-<script src="roster.js"></script>
 
 </html>
